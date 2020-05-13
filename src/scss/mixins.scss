@@ -1,0 +1,127 @@
+//миксин для цвета ссылок
+@mixin alink($color, $color-hover: $color) {
+  &:focus {color: $color;}
+  &:link {color: $color;}
+  &:visited {color: $color;}
+  &:hover {color: $color-hover;}
+  &:active {color: $color;}
+}
+
+@function rem ($pixels, $context: $mainFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+@mixin desktopWidth {
+  @media screen and (max-width:$desktopWidth) {
+    @content;
+  }
+}
+@mixin smDesktopWidth {
+  @media screen and (max-width:$smDesktopWidth) {
+    @content;
+  }
+}
+@mixin tableWidth {
+  @media screen and (max-width:$tableWidth) {
+    @content;
+  }
+}
+@mixin phoneWidth {
+  @media screen and (max-width:$phoneWidth) {
+    @content;
+  }
+}
+@mixin smPhoneWidth {
+  @media screen and (max-width:$smPhoneWidth) {
+    @content;
+  }
+}
+
+@mixin size($width,$height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+@mixin arrow($direction: down, $size1: 5px, $size2: 5px, $size3: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+  @if ($direction == left) {
+    border-top: $size1 solid transparent;
+    border-bottom: $size2 solid transparent;
+    border-right: $size3 solid $color;
+  }
+  @else if ($direction == right) {
+    border-top: $size1 solid transparent;
+    border-bottom: $size2 solid transparent;
+    border-left: $size3 solid $color;
+  }
+  @else if ($direction == down) {
+    border-left: $size1 solid transparent;
+    border-right: $size2 solid transparent;
+    border-top: $size3 solid $color;
+  }
+  @else {
+    border-left: $size1 solid transparent;
+    border-right: $size2 solid transparent;
+    border-bottom: $size3 solid $color;
+  }
+}
+
+@function make-lighter($value) {
+  @return $value + rgb(128,128,128);//по HSB это 50% Brightness
+}

@@ -1,0 +1,49 @@
+//== Media queries breakpoints
+
+// Extra extra small screen / phone
+$screen-xxs:                  479px
+$screen-xxs-min:              $screen-xxs
+$screen-small-phone:          $screen-xxs-min
+
+// Extra small screen / phone
+$screen-xs:                  480px
+$screen-xs-min:              $screen-xs
+$screen-phone:               $screen-xs-min
+
+// Small screen / tablet
+$screen-sm:                  768px
+$screen-sm-min:              $screen-sm
+$screen-tablet:              $screen-sm-min
+
+// Medium screen / desktop
+$screen-md:                  992px
+$screen-md-min:              $screen-md
+$screen-desktop:             $screen-md-min
+
+// Large screen / wide desktop
+$screen-lg:                  1200px
+$screen-lg-min:              $screen-lg
+$screen-lg-desktop:          $screen-lg-min
+
+// Extra Large screen
+$screen-xlg:                  1400px
+$screen-xlg-min:              $screen-xlg
+$screen-xlg-desktop:          $screen-xlg-min
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xxs-max:              ($screen-xs-min - 1)
+$screen-xs-max:               ($screen-sm-min - 1)
+$screen-sm-max:               ($screen-md-min - 1)
+$screen-md-max:               ($screen-lg-min - 1)
+$screen-lg-max:               ($screen-xlg-min - 1)
+
+
+$clearSansFont: 'ClearSans-Light', sans-serif
+$yanoneKaffeesatzRegularFont: 'YanoneKaffeesatz-Regular', sans-serif
+$yanoneKaffeesatzBoldFont: 'YanoneKaffeesatz-Bold', sans-serif
+
+//цвета
+$c-white: #fff
+$c-black: #000
+$c-gray: #bababa
+$c-orange: #ef7f1a
